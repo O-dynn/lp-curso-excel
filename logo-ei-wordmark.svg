@@ -1,0 +1,26 @@
+<svg width="180" height="28" viewBox="0 0 180 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bloco/ícone à esquerda -->
+  <g>
+    <rect x="0" y="2" rx="8" width="36" height="24" fill="url(#g)"></rect>
+    <g transform="translate(8,8)" opacity="0.9">
+      <rect width="4" height="4" rx="1" fill="white" opacity="0.9"></rect>
+      <rect x="8" width="4" height="4" rx="1" fill="white" opacity="0.9"></rect>
+      <rect x="16" width="4" height="4" rx="1" fill="white" opacity="0.9"></rect>
+      <rect y="8" width="4" height="4" rx="1" fill="white" opacity="0.9"></rect>
+      <rect x="8" y="8" width="4" height="4" rx="1" fill="white" opacity="0.9"></rect>
+      <rect x="16" y="8" width="4" height="4" rx="1" fill="white" opacity="0.9"></rect>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="44" y="19" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="16" font-weight="800" fill="#E7ECF6" letter-spacing=".2px">
+    Excel <tspan fill="#BFEFE0">Intensivo</tspan>
+  </text>
+
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EE7B7"></stop>
+      <stop offset="1" stop-color="#34D399"></stop>
+    </linearGradient>
+  </defs>
+</svg>

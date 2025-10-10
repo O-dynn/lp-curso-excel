@@ -1,0 +1,368 @@
+/* =============================================================
+   Curso Intensivo de Excel — Landing Page
+   Autor: Adson Isan
+   Arquivo: assets/style.css
+   ============================================================= */
+
+:root {
+  --bg: #0b1020;
+  --card: #111731;
+  --muted: #8fa3bf;
+  --text: #e7ecf6;
+  --brand: #6ee7b7;
+  --brand-strong: #34d399;
+  --ring: 0 0 0 3px rgba(110, 231, 183, 0.3);
+  /* Altura da nav (atualizada via JS) */
+  --navH: 84px;
+
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html,
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(180deg, #0b1020 0%, #0b1328 30%, #0c1630 100%);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+/* Compensa a header sticky nas âncoras */
+html { scroll-padding-top: var(--navH); }
+section { scroll-margin-top: calc(var(--navH) + 8px); }
+
+a { color: inherit; text-decoration: none; transition: 0.2s ease; }
+a:hover { color: var(--brand); }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* ============================ HEADER ============================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(11, 16, 32, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0; /* was 16px: reduz a altura da barra */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* was 12px: ajuste fino com a logo menor */
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+/* Nova logo via <img class="logo-img"> */
+.logo-img {
+  width: var(--logoSize);
+  height: var(--logoSize);
+  border-radius: 10px;   /* mantém estética arredondada */
+  object-fit: cover;     /* evita distorção */
+  display: block;
+}
+
+/* Caso ainda exista .logo-mark no HTML antigo, mantém o estilo, mas agora
+   ele não é usado. Pode remover se quiser. */
+.logo-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: radial-gradient(circle at 30% 30%, #7ef9c6, #34d399 40%, #0b1020 65%);
+  box-shadow: 0 10px 30px rgba(52, 211, 153, 0.25);
+}
+
+.cta-top { display: flex; gap: 12px; }
+
+/* ============================ BOTÕES ============================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 18px; border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600; line-height: 1; transition: 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(180deg, var(--brand), var(--brand-strong));
+  color: #082318; border: none; box-shadow: 0 10px 30px rgba(52, 211, 153, 0.25);
+}
+.btn-ghost { background: transparent; color: var(--text); }
+.btn-block { width: 100%; }
+
+/* ============================= HERO ============================= */
+.hero { padding: 60px 0 40px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+.kicker { font-weight: 700; color: #a6f3d6; letter-spacing: 0.12em; text-transform: uppercase; font-size: 12px; }
+h1 { font-size: clamp(32px, 4vw, 52px); margin: 10px 0 14px; line-height: 1.08; }
+.sub { font-size: 18px; color: var(--muted); max-width: 52ch; }
+
+/* BADGES */
+.badges { list-style: none; padding-left: 0; margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+.badge {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 14px; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: #cfe5ff; font-size: 13px; line-height: 1;
+}
+.hero-ctas { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* CARD “Próxima turma” */
+.hero-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px; padding: 32px 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+.hero-card h3 { margin: 0 0 12px 0; }
+.hero-card .list { list-style: none; padding: 0; margin: 0 0 6px 0; }
+.hero-card .list li {
+  display: flex; gap: 8px; align-items: flex-start; padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.hero-card .list li:last-child { border-bottom: none; }
+.price-wrap { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.price { font-size: 28px; font-weight: 800; }
+.hero-card .badge { padding: 4px 10px; font-size: 12px; border-color: rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.06); color: #d9e7ff; }
+.hero-card .btn-block { margin-top: 16px; }
+.guarantee { text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(255, 255, 255, 0.08); color: #a6b3cd; }
+
+/* ======================= SEÇÕES GERAIS ======================== */
+section { padding: 60px 0; }
+.title { font-size: 28px; margin-bottom: 12px; }
+.lead { color: var(--muted); max-width: 70ch; margin-bottom: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.card { background: var(--card); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 18px; }
+.card h4 { margin-bottom: 6px; }
+.muted { color: var(--muted); }
+.list { list-style-position: inside; line-height: 1.6; }
+.tiny { font-size: 13px; }
+
+/* =========================== RESULTADOS ======================= */
+.quote { display: flex; gap: 14px; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; background: #24324d; }
+
+/* ============================== FAQ =========================== */
+#faq {
+  background: radial-gradient(80% 80% at 50% 0%, rgba(255, 255, 255, 0.02), transparent);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.faq-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 14px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.faq-item:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(110, 231, 183, 0.2); }
+.faq-item summary {
+  cursor: pointer; font-weight: 700; color: var(--text); font-size: 16px;
+  display: flex; justify-content: space-between; align-items: center; list-style: none;
+}
+.faq-item summary::after { content: "+"; color: var(--brand); font-weight: 700; transition: transform 0.3s ease; }
+.faq-item[open] summary::after { content: "–"; transform: rotate(180deg); }
+.faq-item p {
+  color: var(--muted); font-size: 15px; line-height: 1.6;
+  margin-top: 14px; padding-top: 6px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.06);
+  animation: faqFade 0.3s ease;
+}
+@keyframes faqFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================== FORMULÁRIO (base) ======================= */
+.form { display: grid; gap: 12px; margin-top: 10px; }
+label { font-size: 14px; color: #cfe5ff; }
+input, select, textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1); background: #0b1226; color: var(--text); outline: none;
+}
+input:focus, select:focus, textarea:focus { box-shadow: var(--ring); border-color: var(--brand-strong); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.link { color: var(--brand); text-decoration: underline; }
+
+/* ============================== RODAPÉ ======================== */
+.site-footer { padding: 40px 0; color: #a6b3cd; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+.footer-grid { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.footer-nav { display: flex; gap: 16px; }
+
+/* =========================== RESPONSIVO ======================= */
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .nav { flex-direction: column; gap: 12px; }
+  .cta-top { flex-wrap: wrap; }
+
+  /* logo ainda menor no mobile */
+  :root { --logoSize: 24px; }
+}
+
+/* ===== Benefícios e Conteúdos (toque conversivo) ===== */
+.benefits .benefit h4 { font-weight: 800; }
+.benefit-list { margin-top: 8px; }
+.curriculum .mod .outcome { margin-top: 10px; }
+
+/* ====== Títulos com acento de marca ====== */
+.title-accent { position: relative; display: inline-block; padding-bottom: 6px; }
+.title-accent::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 52%; height: 3px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-strong));
+  box-shadow: 0 0 24px rgba(110, 231, 183, 0.35);
+}
+
+/* ====== Cards com “halo” suave ====== */
+.glow { position: relative; isolation: isolate; }
+.glow::before {
+  content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: 18px;
+  background: radial-gradient(60% 60% at 20% 0%, rgba(110, 231, 183, 0.18), transparent 60%);
+  filter: blur(14px); opacity: 0.75;
+}
+
+/* ====== Benefícios (features) ====== */
+.feature { display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.feature:hover { transform: translateY(-2px); box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28); }
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); font-size: 22px;
+}
+.feature-title { font-size: 18px; font-weight: 800; }
+.feature-desc { margin-top: -2px; }
+
+/* Check list */
+.check-list { list-style: none; padding-left: 0; margin-top: 8px; }
+.check-list li { position: relative; padding-left: 22px; margin-top: 8px; }
+.check-list li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; transform: translateY(1px);
+  font-weight: 800; color: var(--brand-strong);
+}
+
+/* ====== Módulos (trilha) ====== */
+.mod {
+  display: grid; gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.02)) padding-box,
+    linear-gradient(180deg, rgba(110, 231, 183, 0.45), rgba(52, 211, 153, 0.15)) border-box;
+  border-radius: 0;
+}
+.mod-head { display: flex; align-items: center; gap: 10px; }
+.mod-step {
+  font-weight: 800; font-size: 14px; letter-spacing: 0.06em; color: #0b1226;
+  background: linear-gradient(180deg, var(--brand), var(--brand-strong));
+  border-radius: 10px; padding: 6px 10px;
+}
+.mod-title { font-size: 18px; font-weight: 800; }
+.outcome-badge {
+  margin-top: 8px; padding: 10px 12px; border-radius: 12px; font-size: 14px; line-height: 1.4;
+  background: rgba(110, 231, 183, 0.08); border: 1px solid rgba(110, 231, 183, 0.22); color: #d7ffee;
+}
+.mod--one { border-image: linear-gradient(180deg, #7ee9c8, #3cd7a0) 1; }
+.mod--two { border-image: linear-gradient(180deg, #7ee9c8, #3cd7a0) 1; }
+.mod--three { border-image: linear-gradient(180deg, #7ee9c8, #3cd7a0) 1; }
+
+/* ================== SLIDER: foto em cima, frase, nome ================== */
+.slider { position: relative; overflow: hidden; margin-top: 16px; }
+.slides { position: relative; min-height: 260px; }
+.slide {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 12px; background: var(--card);
+  border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 24px;
+  opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease;
+}
+.slide.is-active { opacity: 1; transform: none; }
+.slide .avatar, .slide .avatar img { width: 72px; height: 72px; border-radius: 999px; }
+.slide .avatar { background: #24324d; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.quote-text { font-style: italic; line-height: 1.6; max-width: 60ch; color: var(--text); }
+.quote-author { font-weight: 700; color: #d9e7ff; }
+.slider-dots { display: flex; gap: 8px; justify-content: center; margin-top: 12px; }
+.dot { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,.25); border: none; cursor: pointer; }
+.dot.is-active { background: var(--brand-strong); }
+
+/* ==================== INSCRIÇÃO — premium ===================== */
+.enroll-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 22px;
+  align-items: start;
+}
+@media (max-width: 960px) { .enroll-grid { grid-template-columns: 1fr; } }
+
+.form-card {
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+
+.field { display: grid; gap: 8px; }
+.field + .field { margin-top: 10px; }
+
+.input-wrap { position: relative; }
+.input-wrap .ico {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  font-size: 16px; opacity: .9; pointer-events: none;
+}
+.input-wrap input,
+.input-wrap select,
+.input-wrap textarea { padding-left: 40px; }
+
+/* botão e confiança */
+.form-foot { margin-top: 8px; }
+.form-foot .btn { height: 46px; font-size: 15px; }
+
+.trust-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.trust-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04);
+  font-size: 12px; color: #d9e7ff;
+}
+.policy { margin-top: 8px; }
+
+/* aside */
+.enroll-aside { border-radius: 18px; padding: 20px; }
+.aside-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+.tick-list { list-style: none; padding-left: 0; }
+.tick-list li { position: relative; padding-left: 22px; margin-top: 8px; }
+.tick-list li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; transform: translateY(1px);
+  font-weight: 800; color: var(--brand-strong);
+}
+.aside-divider {
+  height: 1px; margin: 14px 0;
+  background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border-radius: 999px;
+}
+.aside-sub { font-size: 14px; font-weight: 800; }
+
+/* ==================== RESPONSIVO EXTRA ===================== */
+@media (max-width: 960px) {
+  .feature, .mod { margin-top: 6px; }
+  .slides { min-height: 0; }
+  .slide { position: relative; opacity: 1; transform: none; }
+  .slider-dots { display: none; }
+}
+
+/* Avatar universal com imagem real */
+.avatar {
+  width: 72px;               /* mantém o tamanho do slider */
+  height: 72px;
+  border-radius: 999px;
+  object-fit: cover;         /* recorta sem distorcer */
+  display: block;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Compatibilidade se houver DIV .avatar no slider */
+.slide .avatar:not(img) { background: #24324d; }
