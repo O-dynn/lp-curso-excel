@@ -30,11 +30,14 @@ Gerar cadastros e conversões para um curso intensivo de Excel, com uma experiê
 ---
 
 ## 👨‍💻 Autor
+
 **Adson Isan**  
 📍 Itapetininga/SP  
 📧 [ads.if2407@gmail.com](mailto:ads.if2407@gmail.com)  
-💬 [WhatsApp](https://wa.me/5515998584798)  
-💼 [Portfólio](https://O-dynn.github.io/)  
+📸 [Instagram](https://www.instagram.com/_ads_if_)  
+💼 [LinkedIn](https://www.linkedin.com/in/adson-isan-573870375/)  
+💬 [WhatsApp](https://wa.me/5515998584798?text=Olá%20Adson!)  
+💼 [Portfólio de Marketing Digital](https://o-dynn.github.io/Meu-Portfolio-EMD/)
 
 ---
 
